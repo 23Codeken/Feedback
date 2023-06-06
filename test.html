@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title>Feedback for Hiit the Beat</title>
+     <style>
+       body
+         {
+         margin: 0px;
+         display: flex;
+         overflow: hidden;
+         font-family: sans-serif;
+         height: 100vh;
+         background-color:rgba(0, 255, 13, 0.89);
+         justify-content: center;
+         align-items: center;
+         }
+        p
+        {
+          font-size: 18px;
+        }
+        .feedback-section
+        {
+        max-width: 400px;
+        height: 500px;
+        margin: 14% auto 0;
+        background-color: white; 
+        position: center;
+        text-align: center;
+        align-content: center;
+        border-radius: 55px;
+        padding: 3.2rem;
+        padding-top: 15px;
+        }
+        .logo-section
+        {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: 3.2;
+          text-align: center;
+          background-color: rgba(0, 255, 13, 0.89); 
+        }
+        #logo
+        {
+         max-width: 200px;
+        }
+        .emoji-box
+        {
+          margin: 80px 8px;
+          display: flex;
+          justify-content: space-between;
+        } 
+        .rating
+       {
+          flex: 1;
+          font-size: 3rem;
+          display: center;
+          padding: 3px;
+          margin: 8px 4px;
+          cursor: pointer;
+          width: 60px;
+          background-color:rgba(255, 255, 255, 0.733);
+        }
+         .button
+        {
+          display: center;
+          margin-top: 4px;
+          font-size: 16px; 
+          width: 91%;
+          cursor: pointer;
+          border: 0;
+          border-radius: 30px;
+          background-color: rgba(0, 255, 13, 0.89);
+        } 
+        .confirm
+        {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: gray; 
+
+        }
+        .closebutton
+        {
+         display: center;
+          margin-top: 4px;
+          font-size: 16px; 
+          width: 91%;
+          cursor: pointer;
+          border: 0;
+          border-radius: 30px;
+          background-color: rgba(0, 255, 13, 0.89); 
+        }
+      
+     </style>
+         
+   </head>
+   
+   <body> 
+             
+             <div class="logo-section"> 
+                 <img src="Logo_HSP.png" alt="logo">
+             </div> 
+             
+             <section class="feedback-section">        
+            
+              <h1> Deine Meinung ist uns wichtig</h1>
+              <p>Wie hat dir der Kurs gefallen?</p>
+              
+                <div class="emoji-box">
+                  <div ><p id="emoji1" class="rating" onclick="largeEmoji(this)">😖  </p></div>
+                  <div ><p id="emoji2" class="rating" onclick="largeEmoji(this)"> 🙁  </p></div>
+                  <div ><p id="emoji3" class="rating" onclick="largeEmoji(this)"> 😐 </p></div>
+                  <div ><p id="emoji4" class="rating" onclick="largeEmoji(this)">  🙂 </p></div>
+                  <div ><p id="emoji5" class="rating" onclick="largeEmoji(this)"> 😄 </p></div>
+                </div>
+                
+                 <p class="question">Positives/Negatives?</p>
+                 <textarea id="textarea" cols="47" rows="5"></textarea>
+
+                 <form id="feedbackForm"> 
+                 <div class="Center">
+                  <button class="button">Submit</button>
+                </div> 
+                </form>
+                  <div class="confirm" id="Confirm">
+                  <h2>Thank You!</h2>
+                  <p>Your details has been successfully submitted.<br>
+                  Thanks!
+                  </p>
+                  <button class="closebutton">OK</button>
+                  </div>
+                                              
+            </section>
+
+         <script>
+            
+            function largeEmoji(emoji){
+              emoji.style.fontSize="4rem";
+            const emojis=document.getElementsByClassName("rating");
+            for (let i=0; i<emojis.length; i++){
+              if(emojis[i].id !== emoji.id) {
+                emojis[i].style.pointerEvents="none";
+                emojis[i].style.opacity="0.5";
+              }
+            }
+          }
+
+
+            const confirmSection = document.getElementById('Confirm');
+            const submitButton = document.querySelector('.button');
+            const closeButton = document.querySelector('.closebutton');
+
+            submitButton.addEventListener('click', function(event) {
+              event.preventDefault();
+
+              confirmSection.style.display = 'block';
+            });
+
+            closeButton.addEventListener('click', function() {
+              confirmSection.style.display = 'none';
+              location.reload();
+            });
+
+          </script>     
+             
+                  
+   </body>
+
+
+</html>           
